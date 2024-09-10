@@ -1,0 +1,555 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    background-color: #000;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.kids {
+    background-image: url(img/youtube-kids.jpg);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/* Reinicio de las etiquetas */
+
+button {
+    padding: 0;
+    border: none;
+    background: none;
+    margin: 0;
+}
+
+input {
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    padding: 0;
+    margin: 0;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+/* Preloader de la pagina */
+
+.preloader-container {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.7em;
+}
+
+.open-loader {
+    display: flex;
+}
+
+.preloader-container__img {
+    width: 100%;
+    max-width: 150px;
+
+    animation: preloader-image 1s infinite;
+}
+
+.preloader-container.ocultar {
+    display: none;
+}
+
+.loader {
+    width: 350px;
+    height: 40px;
+    background-color: #262626;
+    position: relative;
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    background-color: #f70c0c;
+    width: 0;
+    height: 40px;
+
+    animation: preloader 5s infinite;
+}
+
+.loader .loader-name {
+    position: absolute;
+    letter-spacing: 2px;
+    line-height: 40px;
+    font-weight: bold;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes preloader {
+
+    90% {
+        width: 100%;
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        opacity: 0;
+    }
+}
+
+/* Agregar cuenta */
+
+.add-account {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s;
+    transform: translateY(-100%);
+}
+
+.active-account {
+    transform: translateY(0);
+}
+
+.add-account__arrow {
+    color: #fff;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 0.4em;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.add-account__arrow:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.add-account__container {
+    width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.add-account__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.add-account__img {
+    width: 100%;
+    max-width: 130px;
+}
+
+.add-account__title {
+    font-size: 1.8em;
+    display: block;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.323);
+}
+
+.add-account__text {
+    font-size: 1em;
+}
+
+.add-account__btn {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1em;
+    gap: 0.8em;
+    border-radius: 0.9em;
+    cursor: pointer;
+    transition: all 1s;
+    color: #fff;
+}
+
+.add-account__btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.add-account__img-qr-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-account__info-container {
+    width: 100%;
+}
+
+.add-account__img-qr {
+    width: 100%;
+    max-width: 320px;
+}
+
+.add-account__info {
+    display: block;
+    text-align: center;
+}
+
+.add-account__info--qr {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.323);
+}
+
+/* User YouTube: Primera pantalla de la app */
+
+.user-youtube {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-youtube__logo-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.user-youtube__logo {
+    width: 100%;
+    max-width: 140px;
+}
+
+.user-youtube__text {
+    font-size: 2.1em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #fff;
+}
+
+.user-youtube__user-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    padding: 2em;
+    
+    margin-bottom: 1em;
+
+}
+
+.user-youtube__icon-container {
+    width: 100%;
+}
+
+.user-youtube__icon {
+    width: 100%;
+    max-width: 250px;
+    min-width: 200px;
+    aspect-ratio: 5/5;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px #0003;
+    cursor: pointer;
+}
+
+.user-youtube__text-container {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    margin-bottom: 1em;
+}
+
+.user-youtube__user-name {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.user-youtube__user-email {
+    color: #fff;
+    visibility: hidden;
+}
+
+.user-youtube__btn-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-youtube__btn {
+    width: 50px;
+    height: 50px;
+    background-color: #313030;
+    border-radius: 50%;
+    visibility: hidden;
+    color: #fff;
+}
+
+.user-youtube__btn:hover {
+    background-color: #fff;
+    cursor: pointer;
+    color: #000;
+}
+
+.user-youtube__btn i {
+    font-size: 1.3em;
+}
+
+.user-youtube__option-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2em;
+}
+
+.user-youtube__option {
+    width: 30%;
+    padding: 1em;
+    background-color: #313030;
+    border-radius: 2em;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7em;
+    cursor: pointer;
+    color: #fff;
+    transition: all 1s;
+}
+
+.user-youtube__option:hover {
+    background-color: #fff;
+     color: #000;
+}
+
+
+/* Invitado */
+
+.user-youtube__text-container--invitado {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    margin-bottom: 1em;
+}
+
+.user-youtube__user-name--invitado {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.user-youtube__user-email--invitado {
+    color: #fff;
+    visibility: hidden;
+}
+
+.user-youtube__btn-container--invitado {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-youtube__btn--invitado {
+    width: 50px;
+    height: 50px;
+    background-color: #313030;
+    border-radius: 50%;
+    visibility: hidden;
+    color: #fff;
+}
+
+/* Mostrar elementos de usuario */
+
+.user-youtube__user:hover .user-youtube__user-email {
+    visibility: visible;
+}
+
+.user-youtube__user:hover .user-youtube__icon {
+    outline: 5px solid #fff;
+}
+
+.user-youtube__user:hover .user-youtube__btn {
+    visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* HORA DE SER RESPONSIVO = MOBILE VERSION */
+
+@media screen and (max-width: 940px) {
+
+    .user-youtube {
+        width: 90%;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .user-youtube__user-container {
+        width: 100%;
+        overflow-y: auto;
+    }
+
+    .user-youtube__option {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .user-youtube__option {
+        width: 50%;
+    }
+
+    .add-account {
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    .add-account__container {
+        margin-top: 6em;
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+    
+
+}
+
+@media screen and (max-width: 559px) {
+
+
+
+    .user-youtube__text {
+        font-size: 2.1em;
+    }
+
+    .user-youtube__option-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .user-youtube__option {
+        width: 100%;
+    }
+
+    .loader {
+        width: 90%;
+        height: 40px;
+        background-color: #262626;
+        position: relative;
+    }
+    
+    .loader::before {
+        content: "";
+        position: absolute;
+        background-color: #d81b1b;
+        width: 0;
+        height: 40px;
+    
+        animation: preloader 5s infinite;
+    }
+    
+    .loader .loader-name {
+        position: absolute;
+        letter-spacing: 2px;
+        line-height: 40px;
+        font-weight: bold;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    @keyframes preloader {
+    
+        90% {
+            width: 100%;
+            opacity: 1;
+        }
+        100% {
+            width: 100%;
+            opacity: 0;
+        }
+    }
+    
+
+}
+
+@media screen and (max-width: 387px) {
+
+    .user-youtube__text {
+        font-size: 1.8em;
+    }
+
+}
+
+
